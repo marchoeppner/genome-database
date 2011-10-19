@@ -1,0 +1,10 @@
+#!/usr/bin/sh
+# Builds a new genome database
+
+dbname=$1
+
+# create database
+mysqladmin create $(dbname) -uroot -p
+
+# load schema
+mysql -D $(dbname) -uroot -p < table.sql
